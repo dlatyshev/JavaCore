@@ -1,0 +1,6 @@
+name=Dima
+surname=Latyshev
+age=30
+
+
+
