@@ -2,10 +2,9 @@ package com.dmytroqa.files;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
 import java.util.Arrays;
+import java.util.List;
 
 public class FilesRWDemo {
 
@@ -17,6 +16,11 @@ public class FilesRWDemo {
             String content = new String(bytes, Charset.defaultCharset());
             System.out.println(Arrays.toString(bytes));
             System.out.println(content);
+
+            List<String> lines = Files.readAllLines(pathToFile);
+            System.out.println(lines);
+
+            Files.write(pathToFile, List.of(String.valueOf(System.currentTimeMillis())), StandardOpenOption.APPEND);
         } catch (IOException e) {
             e.printStackTrace();
         }
